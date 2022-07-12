@@ -9,10 +9,18 @@
 #include <functional>
 #include <memory>
 
+//ones I added
+#include <Windows.h>
+#include <thread>
+#include <chrono>
+#include "func.h"
+//end
+
 #include "imgui/imgui.h"
 
 #include "fmt/core.h"
 #include "fmt/ranges.h"
+
 
 extern std::shared_ptr<CVarManagerWrapper> _globalCvarManager;
 

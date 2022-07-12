@@ -22,7 +22,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -76,15 +76,17 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-	<LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)fmt\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)fmt\include;D:\.CPPlibraries\glfw-3.3.6-Source\include\GLFW;D:\.CPPlibraries\glfw-3.3.6-Source\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\.CPPlibraries\glfwCMAKE\src\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pluginsdk.lib;%(AdditionalDependencies);glfw3.lib;msvcrt.lib;msvcmrt.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -File update_version.ps1 "./version.h"</Command>
@@ -93,6 +95,7 @@
   <ItemGroup>
     <ClCompile Include="fmt\src\format.cc" />
     <ClCompile Include="fmt\src\os.cc" />
+    <ClCompile Include="func.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
     <ClCompile Include="imgui\imguivariouscontrols.cpp" />
     <ClCompile Include="imgui\imgui_additions.cpp" />
@@ -112,6 +115,7 @@
     <ClCompile Include="ChainGUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="func.h" />
     <ClInclude Include="imgui\imconfig.h" />
     <ClInclude Include="imgui\imgui.h" />
     <ClInclude Include="imgui\imguivariouscontrols.h" />
@@ -129,7 +133,7 @@
     <ClInclude Include="Chain.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <ResourceCompile Include="Chain.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -5,6 +5,7 @@
 #include "bakkesmod/plugin/PluginSettingsWindow.h"
 
 #include "version.h"
+#include "pch.h"
 constexpr auto plugin_version = stringify(VERSION_MAJOR) "." stringify(VERSION_MINOR) "." stringify(VERSION_PATCH) "." stringify(VERSION_BUILD);
 
 
@@ -16,6 +17,24 @@ class Chain: public BakkesMod::Plugin::BakkesModPlugin/*, public BakkesMod::Plug
 	//Boilerplate
 	virtual void onLoad();
 	virtual void onUnload();
+public:
+    void gameLoop();
+	void testing();
+	std::thread startT();
+	void loadT();
+	std::thread t;
+	int controlArr[5];
+
+	bool looping = true;
+	CarWrapper car = NULL;
+	int roll;
+	bool isOnWall;
+	bool isOnGround;
+	bool hasFlip;
+	bool useController;
+
+	funcs func;
+
 
 	// Inherited via PluginSettingsWindow
 	/*
