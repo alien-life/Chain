@@ -1,6 +1,6 @@
 # Chain
 
--NOT MEANT TO BE USED IN COMPETITIVE PLAY
+bakkesmod plugin to test chain dashing  
 
 Features---------  
 &emsp; Wall-dash when bind pressed while on wall  
